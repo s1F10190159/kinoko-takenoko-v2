@@ -3,7 +3,11 @@ app = Flask(__name__)
 
 kinoko_count = 3
 takenoko_count = 5
+<<<<<<< Updated upstream
 messages = ['Kinoko is wonrderful!', 'Takenoko is awesome!']
+=======
+messages = ['Kinoko is wonderful','Takenoko is awesome!']
+>>>>>>> Stashed changes
 
 @app.route('/')
 def top():
@@ -11,6 +15,7 @@ def top():
 
 @app.route('/vote', methods=['POST'])
 def answer():
+<<<<<<< Updated upstream
     global kinoko_count, takenoko_count
     if request.form.get("item") == 'kinoko':
         kinoko_count += 1
@@ -19,6 +24,12 @@ def answer():
     
     kinoko_percent = kinoko_count / (kinoko_count + takenoko_count) * 100
     takenoko_percent = takenoko_count / (kinoko_count + takenoko_count) * 100
+=======
+    print(request.form)
+    kinoko_percent = kinoko_count / (kinoko_count + takenoko_count) * 100
+    takenoko_percent = takenoko_count / (kinoko_count + takenoko_count) * 10
+    
+>>>>>>> Stashed changes
     return render_template('vote.html', **vars())
 
 if __name__ == '__main__':
